@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>イライラボール - サポート</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#14171f;
+    --surface:#1c212c;
+    --surface-2:#242a37;
+    --line:#2f3644;
+    --text:#eef1f6;
+    --muted:#8b93a6;
+    --amber:#ffb454;
+    --ice:#6ec3ff;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0 0 .5em;
+  }
+  a{color:var(--ice);}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:120px 0 100px;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .beam-stage{
+    position:relative;
+    height:180px;
+    margin:0 0 56px;
+  }
+  .beam{
+    position:absolute;
+    top:50%;
+    left:-10%;
+    width:120%;
+    height:2px;
+    background:linear-gradient(90deg, transparent, var(--line) 15%, var(--line) 85%, transparent);
+    transform:rotate(-9deg);
+  }
+  .ball{
+    position:absolute;
+    width:34px;height:34px;
+    border-radius:50%;
+    top:50%;
+    background:
+      radial-gradient(circle at 32% 28%, #fff 0%, var(--ice) 22%, #2a4a63 75%);
+    box-shadow:0 0 0 rgba(255,180,84,0);
+    offset-path: path('M -50 100 L 850 -20');
+    offset-rotate: 0deg;
+    animation: roll 3.2s cubic-bezier(.45,0,.55,1) infinite alternate;
+  }
+  .goal{
+    position:absolute;
+    right:10%;
+    top:calc(50% - 78px);
+    width:26px;height:26px;
+    border-radius:50%;
+    background:var(--amber);
+    box-shadow:0 0 18px 6px rgba(255,180,84,.55), 0 0 40px 14px rgba(255,180,84,.25);
+    animation:glow 2.4s ease-in-out infinite;
+  }
+  @keyframes roll{
+    0%{ offset-distance:0%; }
+    100%{ offset-distance:100%; }
+  }
+  @keyframes glow{
+    0%,100%{ opacity:.75; transform:scale(1); }
+    50%{ opacity:1; transform:scale(1.12); }
+  }
+  .eyebrow{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:13px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--amber);
+    margin-bottom:14px;
+  }
+  h1{font-size:clamp(32px,5vw,44px); color:var(--text);}
+  .lead{color:var(--muted); font-size:17px; max-width:52ch;}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:64px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  h2{font-size:22px; color:var(--text);}
+  h2 .num{color:var(--muted); font-weight:500; margin-right:10px;}
+
+  .faq-item{
+    padding:22px 0;
+    border-top:1px solid var(--line);
+  }
+  .faq-item:first-of-type{border-top:none;}
+  .faq-item h3{font-size:16px; color:var(--text); font-family:'Inter'; font-weight:600;}
+  .faq-item p{color:var(--muted); margin:8px 0 0; font-size:15px;}
+
+  .contact-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:32px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .contact-card p{margin:0; color:var(--muted); font-size:15px;}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--amber);
+    color:#1a1300;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    font-size:15px;
+    padding:12px 22px;
+    border-radius:10px;
+    text-decoration:none;
+    white-space:nowrap;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px); box-shadow:0 6px 20px rgba(255,180,84,.25);}
+
+  footer{
+    padding:40px 0 60px;
+    color:var(--muted);
+    font-size:13px;
+    text-align:center;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .ball, .goal{animation:none;}
+  }
+  @media (max-width:600px){
+    .hero{padding:80px 0 64px;}
+    .beam-stage{height:140px;}
+  }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="beam-stage" aria-hidden="true">
+        <div class="beam"></div>
+        <div class="ball"></div>
+        <div class="goal"></div>
+      </div>
+      <div class="eyebrow">サポート</div>
+      <h1>イライラボール<br>サポートセンター</h1>
+      <p class="lead">傾けて、転がして、ゴールを目指す球体パズル。よくある質問と、お問い合わせ窓口はこちらです。</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <h2><span class="num">01</span>アプリについて</h2>
+      <p>画面をスワイプしてコースを傾け、ボールをゴールへ導くシンプルな操作のパズルゲームです。全11コースに、ピストン・スピードブースト・扇風機など多彩なギミックを収録しています。</p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2><span class="num">02</span>よくある質問</h2>
+
+      <div class="faq-item">
+        <h3>コースが開かない・進めません</h3>
+        <p>アプリを一度完全に終了してから再起動してください。それでも解決しない場合は、下記の連絡先までコース名（World◯）を添えてご連絡ください。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>カメラの視点を変えたい</h3>
+        <p>画面右上のカメラボタンをタップするとカメラモードに切り替わり、スワイプで視点を回転、ピンチでズームできます。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>ベストタイムやクリア状況をリセットしたい</h3>
+        <p>現在アプリ内にリセット機能はありません。アプリを削除して再インストールすると、記録は初期化されます。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>広告やランキング機能はありますか</h3>
+        <p>現在のバージョンには広告・ランキング機能はありません。今後のアップデートで追加を検討しています。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2><span class="num">03</span>お問い合わせ</h2>
+      <div class="contact-card">
+        <p>不具合報告・ご要望など、お気軽にご連絡ください。</p>
+        <a class="btn" href="mailto:bookslab.apps@gmail.com?subject=イライラボール%20お問い合わせ">メールで問い合わせる</a>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      &copy; 2026 Daiki Hashimoto — イライラボール (BallMaze)
+    </div>
+  </footer>
+
+</body>
+</html>
